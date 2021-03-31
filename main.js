@@ -3,7 +3,7 @@ ctx = canvas.getContext("2d");
 
 car1_width = 120;
 car1_height = 70;
-car1_image = "car1.png";
+car1_image = "car1.png"
 car1_x = 10;
 car1_y = 10;
 
@@ -26,7 +26,7 @@ function add(){
 
     car2_imgTag = new Image();
     car2_imgTag.onload = uploadcar2;
-    car1_imgTag.src = "";
+    car1_imgTag.src = car2_image;
 }
 
 function uploadBackground(){
@@ -73,5 +73,45 @@ function my_keydown(e){
     if(keyPressed == '83'){
         car2_down();
         console.log("key s");
+    }
+}
+
+function car1_up(){
+    if(car1_y >= 0){
+        car1_y = car1_y - 10;
+        console.log("when up arrow key is pressed, x = " + car1_x + "| y = " + car1_y);
+        uploadBackground();
+        uploadcar1();
+        uploadcar2();
+    }
+}
+
+function car1_down(){
+    if(car1_y <= 500){
+        car1_y = car1_y + 10;
+        console.log("When down arrow key is pressed, x = " + car1_x + "| y = " + car1_y);
+        uploadBackground();
+        uploadcar1();
+        uploadcar2();
+    }
+}
+
+function car1_left(){
+    if(car1_x >= 0){
+        car1_x = car1_x + 10;
+        console.log("When down left key is pressed, x = " + car1_x + "| y = " + car1_y);
+        uploadBackground();
+        uploadcar1();
+        uploadcar2();
+    }
+}
+
+function car1_right(){
+    if(rover_x <= 700){
+        rover_x = rover_x + 10;
+        console.log("when right arrow is pressed, x = " + rover_x + " , y = " + rover_y);
+        uploadBackground();
+        uploadcar1();
+        uploadcar2();
     }
 }
